@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
+h4{
+    font-weight: 600;
+    font-size: 20px;
+}
+p{
+    font-size: 11px;
+}
 
 
