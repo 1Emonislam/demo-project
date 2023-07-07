@@ -1,10 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
+"use client";
+import { useEffect, useState } from "react";
+
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineRight } from "react-icons/ai";
 import { AiOutlineLeft } from "react-icons/ai";
 export default function Home() {
+  const [editor, setEditor] = useState([]);
+  console.log(editor);
+  useEffect(() => {
+    fetch(
+      `https://homieebackend.herokuapp.com/blog/editor-picks?fbclid=IwAR1vwDElHcYQYiKtyozNvc84ecOP9nzEqM0cp0pytLlzLorSv9ymsHmeSH4`
+    )
+      .then((res) => res.json())
+      .then((data) => setEditor(data?.data));
+  }, []);
   return (
     <main className="">
       <div className="py-[100px] px-[150px]">
